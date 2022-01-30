@@ -21,6 +21,3 @@ musicFiles.del(0)
 #loop over the files and play them
 for i in musicFiles:
   discard execShellCmd(fmt"mpv {url}{i}")
-
-#remove the curled file
-removeFile(file)
