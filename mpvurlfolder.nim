@@ -1,16 +1,14 @@
 #import the necessary modules
-import os, strformat, htmlparser, strtabs, xmltree
+import os, strformat, htmlparser, strtabs, xmltree, httpclient
 
 #declare variables
+var 
+  client = newHttpClient()
+  musicFiles = newSeq[string]()
 let 
   url = commandLineParams()[0]
   file = "input.html"
-var musicFiles = newSeq[string]()
-
-discard execShellCmd(fmt"curl -so {file} {url}")
-
-#declare the html variable because it must be ran after the curl
-let html = loadHtml(file)
+  html = parseHtml(client.getContent(url))
 
 #loop over the hrefs
 for a in html.findAll("a"):
