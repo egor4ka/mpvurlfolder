@@ -7,7 +7,7 @@ let
   file = "input.html"
 var musicFiles = newSeq[string]()
 
-discard execShellCmd(fmt"curl -o {file} {url}")
+discard execShellCmd(fmt"curl -so {file} {url}")
 
 #declare the html variable because it must be ran after the curl
 let html = loadHtml(file)
