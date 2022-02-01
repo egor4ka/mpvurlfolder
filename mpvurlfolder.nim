@@ -7,7 +7,6 @@ var
   musicFiles = newSeq[string]()
 let 
   url = commandLineParams()[0]
-  file = "input.html"
   html = parseHtml(client.getContent(url))
 
 #loop over the hrefs
